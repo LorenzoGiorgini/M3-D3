@@ -16,7 +16,7 @@ function putImage() {
             const obj = body.photos[i]
 
             const col = document.createElement("div")
-            col.className = "col-4"
+            col.className = "col-md-4"
 
             col.innerHTML = `
             <div class="card mb-4 shadow-sm" id="card">
@@ -35,7 +35,7 @@ function putImage() {
                       <button
                         type="button"
                         class="btn btn-sm hide-me btn-outline-secondary"
-                        onclick="hide()"
+                        onclick="hide(event)"
                       >
                         Hide
                       </button>
@@ -62,11 +62,8 @@ const fetchApi = (type) => {
 }
 
 
-const hide = () => {
-    let row = document.querySelector('#album-row');
-    let card = document.querySelector('#card');
-    row.removeChild(card)
-    console.log(2);
+const hide = (e) => {
+  e.target.closest(".col-md-4").remove()
 };
 
 
